@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import AutosizeInput from "react-input-autosize";
 //Icons
 import { CleanIcon } from "./icons/CleanIcon";
@@ -26,7 +26,7 @@ export default function App() {
   const [focus, setFocus] = useState<boolean>(false);
   const [cleanerButton, setCleanerButton] = useState<boolean>(false);
 
-  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setInputValue(value);
     if (value) {
