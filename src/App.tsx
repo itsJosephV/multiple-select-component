@@ -12,6 +12,7 @@ import { NoDataIcon } from "./icons/NoDataIcon";
 import { TagProps } from "./types";
 //Data
 import { ITEMS } from "./data";
+import { MouseEvent, KeyboardEvent } from "react";
 
 export default function App() {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -43,7 +44,7 @@ export default function App() {
     }
   };
 
-  const handleDropDownState = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleDropDownState = (e: MouseEvent<HTMLDivElement>): void => {
     e.stopPropagation();
 
     if (inputValue) {
@@ -85,7 +86,7 @@ export default function App() {
     setCleanerButton(false);
   };
 
-  const deleteItems = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const deleteItems = (e: KeyboardEvent<HTMLDivElement>): void => {
     if (inputValue) {
       return;
     }
@@ -126,7 +127,8 @@ export default function App() {
   }
 
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleClickOutside = (e: any) => {
       if (
         e.target !== dropdownRef.current &&
         e.target !== tagContainerRef.current
