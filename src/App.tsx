@@ -1,7 +1,6 @@
 import "./App.css";
 import { useEffect, useRef, useState } from "react";
 import AutosizeInput from "react-input-autosize";
-import React from "react";
 //Icons
 import { CleanIcon } from "./icons/CleanIcon";
 import { SearchIcon } from "./icons/SearchIcon";
