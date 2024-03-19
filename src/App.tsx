@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useRef, useState } from "react";
 import AutosizeInput from "react-input-autosize";
-import React, { MouseEvent } from "react";
+import React from "react";
 //Icons
 import { CleanIcon } from "./icons/CleanIcon";
 import { SearchIcon } from "./icons/SearchIcon";
@@ -44,7 +44,7 @@ export default function App() {
     }
   };
 
-  const handleDropDownState = (e: MouseEvent<HTMLDivElement>): void => {
+  const handleDropDownState = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
 
     if (inputValue) {
@@ -127,7 +127,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    const draft = (e) => {
+    const handleClickOutside = (e: MouseEvent) => {
       if (
         e.target !== dropdownRef.current &&
         e.target !== tagContainerRef.current
@@ -140,9 +140,9 @@ export default function App() {
       }
     };
 
-    document.addEventListener("click", draft);
+    document.addEventListener("click", handleClickOutside);
 
-    return () => document.removeEventListener("click", draft);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -335,7 +335,7 @@ const TagItem = ({
   handleDeleteItemFromList,
 }: {
   name: string;
-  handleDropDownState: (e: MouseEvent<HTMLDivElement>) => void;
+  handleDropDownState: (e: React.MouseEvent<HTMLDivElement>) => void;
   handleDeleteItemFromList: (name: string) => void;
 }) => {
   return (
