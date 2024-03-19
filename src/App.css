@@ -1,0 +1,20 @@
+.tag-container:hover {
+  border: 1px solid #c4b5fd !important
+}
+
+.list-item:hover {
+ background-color: #f5f5f4; 
+}
+
+.input-icon.clean-btn:hover {
+  color: #44403c;
+}
+
+.delete-icon:hover {
+  color: inherit
+}
+
+.input-icon {
+  color: #a8a29e;
+  transition: all 200ms;
+}
