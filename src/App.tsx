@@ -371,7 +371,10 @@ const TagItem = ({
           handleDeleteItemFromList(name);
         }}
       >
-        <DeleteIcon style={{ color: "#a8a29e" }} className="delete-icon" />
+        <DeleteIcon
+          style={{ color: "#a8a29e", transition: "all 200ms" }}
+          className="delete-icon"
+        />
       </button>
     </div>
   );
