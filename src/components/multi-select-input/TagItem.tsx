@@ -10,40 +10,20 @@ export const TagItem = ({
   return (
     <div
       id="tag-item"
-      className="tag-item"
-      style={{
-        padding: "3px 6px",
-        backgroundColor: "#e7e5e4",
-        borderRadius: "4px",
-        display: "flex",
-        alignItems: "center",
-        gap: "3px",
-        minHeight: "25px",
-      }}
+      className="tag-item px-1.5 rounded-[4px] flex items-center gap-1 min-h-[25px] bg-stone-200"
     >
-      <div
-        style={{
-          color: "#57534e",
-          cursor: "default",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          flex: "1",
-        }}
-      >
-        <span style={{ fontSize: "14px" }}>{name}</span>
+      <div className="cursor-default overflow-hidden text-ellipsis flex-1">
+        <span className="text-sm text-stone-600">{name}</span>
       </div>
       <button
         id="tag-btn"
-        style={{ all: "unset", cursor: "pointer", display: "inline-flex" }}
+        className="cursor-pointer inline-flex"
         onClick={(e) => {
           e.stopPropagation();
           handleDeleteItemFromList(name);
         }}
       >
-        <DeleteIcon
-          style={{ color: "#a8a29e", transition: "all 200ms" }}
-          className="delete-icon"
-        />
+        <DeleteIcon className="duration-200 text-stone-400 hover:text-stone-600" />
       </button>
     </div>
   );
