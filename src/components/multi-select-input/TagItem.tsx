@@ -1,12 +1,11 @@
 import { DeleteIcon } from "../../icons/DeleteIcon";
 
-export const TagItem = ({
-  name,
-  handleDeleteItemFromList,
-}: {
+type Props = {
   name: string;
   handleDeleteItemFromList: (name: string) => void;
-}) => {
+};
+
+export const TagItem = ({ name, handleDeleteItemFromList }: Props) => {
   return (
     <div
       id="tag-item"

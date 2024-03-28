@@ -1,17 +1,27 @@
-import { useFnContext } from "../../context/useFnContext";
 import { AddedIcon } from "../../icons/AddedIcon";
 import { TagProps } from "../../types";
 
-const ListItem = ({ item }: { item: TagProps }) => {
-  const { handleItemList, listItemRef, selectedItems } = useFnContext();
+type Props = {
+  item: TagProps;
+  selectedItems: TagProps[];
+  handleItemList: (item: TagProps) => void;
+  listItemRef: React.RefObject<HTMLLIElement>;
+};
+
+const ListItem = ({
+  item,
+  selectedItems,
+  listItemRef,
+  handleItemList,
+}: Props) => {
   return (
     <li
+      tabIndex={0}
       role="option"
       id="list-option"
       aria-selected={selectedItems.includes(item)}
       title={item.name}
       ref={listItemRef}
-      key={item.id}
       className="flex items-center p-1 rounded-[4px] cursor-pointer h-[30px] hover:bg-stone-100"
       onClick={() => handleItemList(item)}
       style={{
